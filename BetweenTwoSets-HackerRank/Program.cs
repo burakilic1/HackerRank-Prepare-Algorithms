@@ -46,22 +46,6 @@ class Result
         
         return count;
 
-        //for (int j = 0; j < a.Count; j++)
-        //{
-        //    if (i % a[j] == 0)
-        //    {
-        //        sayilar.Add(i);
-        //    }
-        //}
-
-        //for (int c = 0; c < b.Count; c++)
-        //{
-        //    if (b[c] % i == 0)
-        //    { value++; }
-        //}
-
-
-
     }
 
 }

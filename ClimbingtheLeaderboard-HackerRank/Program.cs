@@ -26,35 +26,38 @@ class Result
 
     public static List<int> climbingLeaderboard(List<int> ranked, List<int> player)
     {
+        
         List<int> list = new List<int>();
-        for (int i = 0; i < player.Count; i++)
-        {
-            int count = 0;
-            ranked.Add(player[i]);
-            ranked.Sort();
-            for (int j = 1; j < ranked.Count; j++)
-            {
-                if (ranked[j - 1] != ranked[j])
-                {
-                    count++;
-                }
-                if (player[i] == ranked[j])
-                {
-                    list.Add(count);
-                }
 
+        foreach (var x in player)
+        {
+            ranked.Add(x);
+            ranked = ranked.Distinct().ToList();
+            ranked.Sort();
+            ranked.Reverse();
+
+            for (int j = 0; j < ranked.Count; j++)
+            {
+                if (x == ranked[j])
+                {
+                    list.Add(j + 1);
+                    ranked.Remove(x);
+                    break;
+                }
             }
-            ranked.Remove(player[i]);
         }
         return list;
-    }
 
+
+    }
 }
+
 
 class Solution
 {
     public static void Main(string[] args)
     {
+
 
         int rankedCount = Convert.ToInt32(Console.ReadLine().Trim());
 
@@ -69,4 +72,6 @@ class Solution
         Console.WriteLine(String.Join("\n", result));
         Console.ReadLine();
     }
+
 }
+
